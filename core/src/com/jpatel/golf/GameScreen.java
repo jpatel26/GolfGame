@@ -15,7 +15,7 @@ public class GameScreen implements Screen {
     this.game = game;
     
     camera = new OrthographicCamera();
-    camera.setToOrtho(false, 800, 480);
+    camera.setToOrtho(false, 900, 480);
   }
   
   @Override
