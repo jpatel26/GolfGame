@@ -11,12 +11,14 @@ public class GameScreen implements Screen {
   
   private OrthographicCamera camera;
   
-  public GameScreen(Golf game) {
+  public GameScreen(Golf game, GameInstance gameInstance) {
     this.game = game;
     
     camera = new OrthographicCamera();
 
     camera.setToOrtho(false, 700, 480);
+    
+    gameInstance.playGame();
   }
   
   @Override

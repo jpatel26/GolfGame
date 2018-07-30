@@ -37,7 +37,9 @@ public class MainMenuScreen implements Screen {
     game.batch.end();
 
     if (Gdx.input.isTouched()) {
-      game.setScreen(new GameScreen(game));
+      //create playerConfigs
+      //create new GameInstance(playerConfigs)
+      game.setScreen(new GameScreen(game, new GameInstance(null)));
       dispose();
     }
   }
