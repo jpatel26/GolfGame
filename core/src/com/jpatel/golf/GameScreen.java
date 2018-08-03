@@ -11,13 +11,16 @@ public class GameScreen implements Screen {
   
   private OrthographicCamera camera;
   
+  private GameInstance gameInstance;
+  
   public GameScreen(Golf game, GameInstance gameInstance) {
     this.game = game;
     
     camera = new OrthographicCamera();
 
-    camera.setToOrtho(false, 700, 480);
+    camera.setToOrtho(false, gameInstance.getWidth(), gameInstance.getHeight());
     
+    this.gameInstance = gameInstance;
     gameInstance.playGame();
   }
   
@@ -37,6 +40,10 @@ public class GameScreen implements Screen {
 
     game.batch.begin();
     game.font.draw(game.batch, "GAME SCREEN", 100, 150);
+    //draw players (each player draws their own cards)
+    for (Player player : gameInstance.players) {
+      player.draw(game);
+    }
     game.batch.end();
   }
 
