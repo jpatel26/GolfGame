@@ -1,9 +1,13 @@
 package com.jpatel.golf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.jpatel.golf.PlayerConfig.Type;
 
 public class MainMenuScreen implements Screen {
   
@@ -38,8 +42,11 @@ public class MainMenuScreen implements Screen {
 
     if (Gdx.input.isTouched()) {
       //create playerConfigs
+      List<PlayerConfig> configs = new ArrayList<PlayerConfig>();
+      configs.add(new PlayerConfig("Jasmine", Type.HUMAN));
+      configs.add(new PlayerConfig("John", Type.AI));
       //create new GameInstance(playerConfigs)
-      game.setScreen(new GameScreen(game, new GameInstance(null)));
+      game.setScreen(new GameScreen(game, new GameInstance(configs)));
       dispose();
     }
   }
